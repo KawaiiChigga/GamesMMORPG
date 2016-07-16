@@ -1,17 +1,17 @@
 package model.character;
 
 
-public class Ghost extends Monster {
-	public Ghost(String name) {
+public class BlackHood extends Monster {
+	public BlackHood(String name) {
 		super(name);
-		super.hp = hpGhost;
-		super.mana = manaGhost;
-		super.attack = attackGhost;
+		super.hp = hpBlackHood;
+		super.mana = manaBlackHood;
+		super.attack = attackBlackHood;
 	}
 
 	@Override
 	public String skill() {
-		return "Life Drain";
+		return "Root";
 	}
 
 	@Override
@@ -28,4 +28,5 @@ public class Ghost extends Monster {
 		skill();
 		weapon();
 	}
+
 }

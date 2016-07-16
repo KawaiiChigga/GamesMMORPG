@@ -2,13 +2,11 @@ package model.character;
 
 import java.util.ArrayList;
 
-import model.item.Item;
 
 public class Human extends Character {
 	public String job;
 	public double exp, gold;
 	public int level;
-	public ArrayList <Item> inventory;
 	
 	public Human(String name, String job) {
 		super(name);
