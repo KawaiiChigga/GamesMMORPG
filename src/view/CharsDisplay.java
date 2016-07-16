@@ -23,8 +23,8 @@ import javax.swing.JPanel;
 
 public class CharsDisplay extends JPanel implements Runnable{
 
-	private final int BG_WIDTH = 640;
-	private final int BG_HEIGHT = 480;
+	private final int BG_WIDTH = 710;
+	private final int BG_HEIGHT = 410;
 	private final int BTN_WIDTH = 300;
 	private final int BTN_HEIGHT = 50;
 	
@@ -65,12 +65,12 @@ public class CharsDisplay extends JPanel implements Runnable{
 		
 		enemy = new JLabel();
 		if (tmp.equals("Graveyard")) {
-			ImageIcon img = new ImageIcon("img/gy.png");
+			ImageIcon img = new ImageIcon("img/graveyard.png");
 			bg = img.getImage();
 			x = 300;
 			y = 400;
 			
-			human.setIcon(new ImageIcon("img/human_right.png"));
+			human.setIcon(new ImageIcon("img/warrior_right.png"));
 			human.setBounds(x,y,44,79);
 			
 			ImageIcon imgE = new ImageIcon("img/ghost.png");
@@ -78,12 +78,12 @@ public class CharsDisplay extends JPanel implements Runnable{
 			enemy.setBounds(490,130,imgE.getIconWidth(),imgE.getIconHeight());
 			
 		} else if (tmp.equals("Hill")) {
-			ImageIcon img = new ImageIcon("img/hill.jpg");
+			ImageIcon img = new ImageIcon("img/hill.png");
 			bg = img.getImage();
 			x = 70;
 			y = 200;
 			
-			human.setIcon(new ImageIcon("img/human_right.png"));
+			human.setIcon(new ImageIcon("img/warrior_right.png"));
 			human.setBounds(x,y,44,79);
 			
 			ImageIcon imgE = new ImageIcon("img/goblin.png");
@@ -96,10 +96,10 @@ public class CharsDisplay extends JPanel implements Runnable{
 			x = 300;
 			y = 100;
 			
-			human.setIcon(new ImageIcon("img/human_left.png"));
+			human.setIcon(new ImageIcon("img/warrior_left.png"));
 			human.setBounds(x,y,44,79);
 			
-			ImageIcon imgE = new ImageIcon("img/insect.png");
+			ImageIcon imgE = new ImageIcon("img/blackhood.png");
 			enemy.setIcon(imgE);
 			enemy.setBounds(180,200,imgE.getIconWidth(),imgE.getIconHeight());
 						
@@ -109,11 +109,10 @@ public class CharsDisplay extends JPanel implements Runnable{
 			x = 10;
 			y = 100;
 			
-			human.setIcon(new ImageIcon("img/human_right.png"));
+			human.setIcon(new ImageIcon("img/warrior_right.png"));
 			human.setBounds(x,y,44,79);
 			
-			enemy.setIcon(new ImageIcon("img/villagehuman.png"));
-			enemy.setBounds(510,0,img.getIconWidth(),img.getIconHeight());
+			enemy = null;
 		}
 		
 		back.addActionListener(new CharsDisplay.button());
@@ -131,8 +130,8 @@ public class CharsDisplay extends JPanel implements Runnable{
 		
 		// intersects buat check bersentuhan
 		if (r2.intersects(r1)) {
-			new Battle(tmp);
-			frame.dispose();
+				new Battle(tmp);
+				frame.dispose();
 			}
 		} 
 	
@@ -156,10 +155,10 @@ public class CharsDisplay extends JPanel implements Runnable{
     		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
     			y += 5;
     		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-    			human.setIcon(new ImageIcon("img/human_left.png"));
+    			human.setIcon(new ImageIcon("img/warrior_left.png"));
     			x -= 5;
     		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-    			human.setIcon(new ImageIcon("img/human_right.png"));
+    			human.setIcon(new ImageIcon("img/warrior_right.png"));
     			x += 5;
     		}
     		if (x < 0) {

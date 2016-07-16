@@ -12,13 +12,6 @@ public abstract class Map {
 		super();
 		this.mapName = mapName;
 	}
-
-	public ArrayList<Character> getChars() {
-		return chars;
-	}
-	public void setChars(ArrayList<Character> chars) {
-		this.chars = chars;
-	}
 	
 	
 }
