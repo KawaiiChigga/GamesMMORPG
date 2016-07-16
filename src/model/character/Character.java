@@ -3,10 +3,10 @@ package model.character;
 public abstract class Character {
 	public String name;
 	public int hp, mana;
-	public int attack;
+	public int attackMin, attackMax;
+	public int skillMin, skillMax;
 	public abstract String skill();
 	public abstract String weapon();
-	public abstract void printData();
 	public Character(String name) {
 		super();
 		this.name = name;
@@ -29,10 +29,29 @@ public abstract class Character {
 	public void setMana(int mana) {
 		this.mana = mana;
 	}
-	public int getAttack() {
-		return attack;
+	public int getAttackMin() {
+		return attackMin;
 	}
-	public void setAttack(int attack) {
-		this.attack = attack;
+	public void setAttackMin(int attackMin) {
+		this.attackMin = attackMin;
 	}
+	public int getAttackMax() {
+		return attackMax;
+	}
+	public void setAttackMax(int attackMax) {
+		this.attackMax = attackMax;
+	}
+	public int getSkillMin() {
+		return skillMin;
+	}
+	public void setSkillMin(int skillMin) {
+		this.skillMin = skillMin;
+	}
+	public int getSkillMax() {
+		return skillMax;
+	}
+	public void setSkillMax(int skillMax) {
+		this.skillMax = skillMax;
+	}
+	
 }

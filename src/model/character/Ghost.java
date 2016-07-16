@@ -6,7 +6,10 @@ public class Ghost extends Monster {
 		super(name);
 		super.hp = hpGhost;
 		super.mana = manaGhost;
-		super.attack = attackGhost;
+		super.attackMax = attackGhost;
+		super.attackMin = attackGhost - 5;
+		super.skillMax = skillGhost;
+		super.skillMin = skillGhost - 5;
 	}
 
 	@Override
@@ -17,15 +20,5 @@ public class Ghost extends Monster {
 	@Override
 	public String weapon() {
 		return null;
-	}
-
-	@Override
-	public void printData() {
-		System.out.println("Nama : " + this.name);
-		System.out.println("Attack : " + this.attack);
-		System.out.println("HP : " + this.hp);
-		System.out.println("Mana : " + this.mana);
-		skill();
-		weapon();
 	}
 }

@@ -6,27 +6,20 @@ public class BlackHood extends Monster {
 		super(name);
 		super.hp = hpBlackHood;
 		super.mana = manaBlackHood;
-		super.attack = attackBlackHood;
+		super.attackMax = attackBlackHood;
+		super.attackMin = attackBlackHood - 5;
+		super.skillMax = skillBlackHood;
+		super.skillMin = skillBlackHood - 5;
 	}
 
 	@Override
 	public String skill() {
-		return "Root";
+		return "Throw Knife";
 	}
 
 	@Override
 	public String weapon() {
-		return null;
-	}
-
-	@Override
-	public void printData() {
-		System.out.println("Nama : " + this.name);
-		System.out.println("Attack : " + this.attack);
-		System.out.println("HP : " + this.hp);
-		System.out.println("Mana : " + this.mana);
-		skill();
-		weapon();
+		return "Dagger";
 	}
 
 }

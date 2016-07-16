@@ -6,7 +6,10 @@ public class Goblin extends Monster {
 		super(name);
 		super.hp = hpGoblin;
 		super.mana = manaGoblin;
-		super.attack = attackGoblin;
+		super.attackMax = attackGoblin;
+		super.attackMin = attackGoblin - 5;
+		super.skillMax = skillGoblin;
+		super.skillMin = skillGoblin - 5;
 	}
 
 	@Override
@@ -19,14 +22,4 @@ public class Goblin extends Monster {
 		return "Knife";
 	}
 
-	@Override
-	public void printData() {
-		System.out.println("Nama : " + this.name);
-		System.out.println("Attack : " + this.attack);
-		System.out.println("HP : " + this.hp);
-		System.out.println("Mana : " + this.mana);
-		skill();
-		weapon();
-	}
-	
 }

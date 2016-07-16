@@ -6,15 +6,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,8 +20,6 @@ public class CharsDisplay extends JPanel implements Runnable{
 
 	private final int BG_WIDTH = 710;
 	private final int BG_HEIGHT = 410;
-	private final int BTN_WIDTH = 300;
-	private final int BTN_HEIGHT = 50;
 	
 	private static int x;
 	private static int y;
@@ -40,7 +33,6 @@ public class CharsDisplay extends JPanel implements Runnable{
 	private JFrame frame;
 	private JLabel human;
 	private JLabel enemy;
-	private JButton back;
 	
 	private Thread th = null;
 	
@@ -62,9 +54,6 @@ public class CharsDisplay extends JPanel implements Runnable{
 		th.start();
 		
 		setLayout(null);
-		
-		back = new JButton("Back");
-		back.setBounds(540, 460, 100, 20);
 		
 		human = new JLabel();
 		y = 250;
@@ -116,12 +105,8 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setIcon(imgH);
 			human.setBounds(x,y,imgH.getIconWidth(),imgH.getIconHeight());
 		}
-		
-		back.addActionListener(new CharsDisplay.button());
-		
 		add(human);
 		add(enemy);
-		add(back);
 	}
 	
 	public void checkIntersect() {
@@ -214,15 +199,4 @@ public class CharsDisplay extends JPanel implements Runnable{
             }
         }
 	}
-	
-	public class button implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			new Maps();
-			frame.dispose();
-		}
-		
-	}
-
 }
