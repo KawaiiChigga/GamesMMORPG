@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -72,8 +73,9 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setIcon(new ImageIcon("img/human_right.png"));
 			human.setBounds(x,y,44,79);
 			
-			enemy.setIcon(new ImageIcon("img/ghost.png"));
-			enemy.setBounds(490,-30,img.getIconWidth(),img.getIconHeight());
+			ImageIcon imgE = new ImageIcon("img/ghost.png");
+			enemy.setIcon(imgE);
+			enemy.setBounds(490,130,imgE.getIconWidth(),imgE.getIconHeight());
 			
 		} else if (tmp.equals("Hill")) {
 			ImageIcon img = new ImageIcon("img/hill.jpg");
@@ -84,8 +86,9 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setIcon(new ImageIcon("img/human_right.png"));
 			human.setBounds(x,y,44,79);
 			
-			enemy.setIcon(new ImageIcon("img/goblin.png"));
-			enemy.setBounds(490,-90,img.getIconWidth(),img.getIconHeight());
+			ImageIcon imgE = new ImageIcon("img/goblin.png");
+			enemy.setIcon(imgE);
+			enemy.setBounds(490,190,img.getIconWidth(),img.getIconHeight());
 			
 		} else if (tmp.equals("Jungle")) {
 			ImageIcon img = new ImageIcon("img/jungle.png");
@@ -96,9 +99,10 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setIcon(new ImageIcon("img/human_left.png"));
 			human.setBounds(x,y,44,79);
 			
-			enemy.setIcon(new ImageIcon("img/insect.png"));
-			enemy.setBounds(180,100,img.getIconWidth(),img.getIconHeight());
-			
+			ImageIcon imgE = new ImageIcon("img/insect.png");
+			enemy.setIcon(imgE);
+			enemy.setBounds(180,200,imgE.getIconWidth(),imgE.getIconHeight());
+						
 		} else if (tmp.equals("Village")) {
 			ImageIcon img = new ImageIcon("img/village.png");
 			bg = img.getImage();
@@ -119,6 +123,20 @@ public class CharsDisplay extends JPanel implements Runnable{
 		add(back);
 	}
 	
+	public void checkIntersect() {
+
+		Rectangle r1 = human.getBounds();
+		Rectangle r2 = enemy.getBounds();
+		// rectangel utk tau pinggiran bound nya
+		
+		// intersects buat check bersentuhan
+		if (r2.intersects(r1)) {
+			new Battle(tmp);
+			frame.dispose();
+			}
+		} 
+	
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(bg, 0, 0, this);
@@ -132,6 +150,7 @@ public class CharsDisplay extends JPanel implements Runnable{
         }
 
         public void keyPressed(KeyEvent e) {
+        	checkIntersect();
     		if (e.getKeyCode() == KeyEvent.VK_UP){
     			y -= 5;
     		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -177,4 +196,5 @@ public class CharsDisplay extends JPanel implements Runnable{
 		}
 		
 	}
+
 }
