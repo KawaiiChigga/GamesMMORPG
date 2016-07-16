@@ -11,7 +11,7 @@ public class Chars extends JFrame {
 	}
 
 	private void initgraveyards() {
-		add(new CharsDisplay(this, tmp));
+		add(new CharsDisplay(this, tmp, "archer"));
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pack();

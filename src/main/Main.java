@@ -1,10 +1,10 @@
 package main;
 
-import view.Maps;
+import view.Chars;
 
 public class Main {
 	public static void main(String[] args) {
-		new Maps();
+		new Chars("Village");
 	}
 
 }
