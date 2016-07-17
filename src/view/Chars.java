@@ -7,11 +7,11 @@ public class Chars extends JFrame {
 	
 	public Chars(String tmp) {
 		this.tmp = tmp;
-		initgraveyards();
+		initChars();
 	}
 
-	private void initgraveyards() {
-		add(new CharsDisplay(this, tmp, "archer"));
+	private void initChars() {
+		add(new CharsDisplay(this, tmp, "mage"));
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pack();

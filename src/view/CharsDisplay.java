@@ -91,8 +91,8 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setBounds(x,y,imgH.getIconWidth(),imgH.getIconHeight());
 			
 			ImageIcon imgE = new ImageIcon("img/blackhood.png");
-//			enemy.setIcon(imgE);
-//			enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+			enemy.setIcon(imgE);
+			enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
 						
 		} else if (tmp.equals("Village")) {
 			ImageIcon img = new ImageIcon("img/village.png");
@@ -126,7 +126,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(bg, 0, 0, this);
-		human.setBounds(x,y,58,76);
+		human.setBounds(x,y,imgH_left.getIconWidth(),imgH_right.getIconHeight());
 		Toolkit.getDefaultToolkit().sync();
 	}
 	private class TAdapter extends KeyAdapter {
