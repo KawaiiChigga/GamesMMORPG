@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.character.Human;
+
 
 
 public class CharsDisplay extends JPanel implements Runnable{
@@ -24,6 +26,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 	private static int x;
 	private static int y;
 	private String tmp;
+	private Human player;
 	private String job;
 	
 	private Image bg;
@@ -117,7 +120,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 		
 		// intersects buat check bersentuhan
 		if (r2.intersects(r1)) {
-				new Battle(tmp);
+				new Battle(tmp, player);
 				frame.dispose();
 			}
 		} 

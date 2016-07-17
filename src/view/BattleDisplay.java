@@ -7,23 +7,34 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import model.character.Human;
+import model.character.Character;
+
 public class BattleDisplay extends JPanel {
 
-	private final int BG_WIDTH = 1024;
-	private final int BG_HEIGHT = 576;
+	private final int BG_WIDTH = 710;
+	private final int BG_HEIGHT = 410;
 	private final int BTN_WIDTH = 300;
 	private final int BTN_HEIGHT = 50;
 	
 	private Image bg;
 	private JFrame frame;
-	private String map;
+	private JButton btn1;
 	
-	public BattleDisplay(JFrame frame, String map){
+	private String map;
+	private Human player;
+	private Character enemy;
+	
+	
+	public BattleDisplay(JFrame frame, String map, Human player, Character enemy ){
 		this.frame = frame;
 		this.map = map;
+		this.player = player;
+		this.enemy = enemy;
 		initBattleDisplay();
 	}
 	
@@ -31,10 +42,13 @@ public class BattleDisplay extends JPanel {
 		setPreferredSize(new Dimension(BG_WIDTH, BG_HEIGHT));
 		setBackground(Color.BLACK);
 		
-		ImageIcon img = new ImageIcon("img/coba.jpg");
+		
+		
+		ImageIcon img = new ImageIcon("img/"+ map + ".png");
 		bg = img.getImage();
 		
 		setLayout(null);
+		
 		
 		
 	}
