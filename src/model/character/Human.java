@@ -7,7 +7,12 @@ public class Human extends Character implements HumanDefault {
 	private String job;
 	private double exp;
 	private int level;
+<<<<<<< HEAD
 	private int maxHp, maxMp;
+=======
+	private int manaCost;
+	
+>>>>>>> origin/master
 	
 	
 	public int getMaxHp() {
@@ -50,6 +55,14 @@ public class Human extends Character implements HumanDefault {
 		this.level = level;
 	}
 
+	public int getManaCost() {
+		return manaCost;
+	}
+
+	public void setManaCost(int manaCost) {
+		this.manaCost = manaCost;
+	}
+
 	public Human(String name, String job) {
 		super(name);
 		this.job = job;
@@ -60,22 +73,40 @@ public class Human extends Character implements HumanDefault {
 			super.attackMin = attackWarrior - 5;
 			super.skillMax = skillWarrior;
 			super.skillMin = skillWarrior - 5;
+<<<<<<< HEAD
 			maxHp = hpWarrior;
 			maxMp = manaWarrior;
+=======
+			super.hp = hpWarrior;
+			super.mana = manaWarrior;
+			manaCost = manaSkillWarrior;
+>>>>>>> origin/master
 		} else if (job.equalsIgnoreCase("Mage")) {
 			super.attackMax = attackMage;
 			super.attackMin = attackMage - 5;
 			super.skillMax = skillMage;
 			super.skillMin = skillMage - 5;
+<<<<<<< HEAD
 			maxHp = hpMage;
 			maxMp = manaMage;
+=======
+			super.hp = hpMage;
+			super.mana = manaMage;
+			manaCost = manaSkillMage;
+>>>>>>> origin/master
 		} else if (job.equalsIgnoreCase("Archer")) {
 			super.attackMax = attackArcher;
 			super.attackMin = attackArcher - 5;
 			super.skillMax = skillArcher;
 			super.skillMin = skillArcher - 5;
+<<<<<<< HEAD
 			maxHp = hpArcher;
 			maxMp = manaArcher;
+=======
+			super.hp = hpArcher;
+			super.mana = manaArcher;
+			manaCost = manaSkillArcher;
+>>>>>>> origin/master
 		}
 	}
 	
