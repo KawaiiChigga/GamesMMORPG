@@ -1,10 +1,10 @@
 package model.character;
 
 public abstract class Character {
-	public String name;
-	public int hp, mana;
-	public int attackMin, attackMax;
-	public int skillMin, skillMax;
+	protected String name;
+	protected int hp, mana;
+	protected int attackMin, attackMax;
+	protected int skillMin, skillMax;
 	public abstract String skill();
 	public abstract String weapon();
 	public Character(String name) {

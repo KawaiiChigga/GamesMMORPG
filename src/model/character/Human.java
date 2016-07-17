@@ -4,10 +4,35 @@ import java.util.ArrayList;
 
 
 public class Human extends Character implements HumanDefault {
-	public String job;
-	public double exp;
-	public int level;
+	private String job;
+	private double exp;
+	private int level;
 	
+	
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public double getExp() {
+		return exp;
+	}
+
+	public void setExp(double exp) {
+		this.exp = exp;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 	public Human(String name, String job) {
 		super(name);
 		this.job = job;
