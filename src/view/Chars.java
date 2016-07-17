@@ -14,7 +14,7 @@ public class Chars extends JFrame {
 	}
 
 	private void initChars() {
-		add(new CharsDisplay(this, tmp, "mage", player));
+		add(new CharsDisplay(this, tmp, player));
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pack();

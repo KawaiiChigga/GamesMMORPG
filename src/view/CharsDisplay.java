@@ -27,7 +27,10 @@ public class CharsDisplay extends JPanel implements Runnable{
 	private static int y;
 	private String tmp;
 	private Human player;
-	private String job;
+	
+	public static boolean isDieGoblin;
+	public static boolean isDieBlackHood;
+	public static boolean isDieGhost;
 	
 	private Image bg;
 	private ImageIcon imgH_left;
@@ -39,8 +42,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 	
 	private Thread th = null;
 	
-	public CharsDisplay(JFrame frame, String tmp, String job, Human player){
-		this.job = job;
+	public CharsDisplay(JFrame frame, String tmp, Human player){
 		this.tmp = tmp;
 		this.frame = frame;
 		this.player = player;
@@ -61,8 +63,8 @@ public class CharsDisplay extends JPanel implements Runnable{
 		
 		human = new JLabel();
 		y = 250;
-		imgH_left = new ImageIcon("img/" + job + "_left.png");
-		imgH_right = new ImageIcon("img/" + job + "_right.png");
+		imgH_left = new ImageIcon("img/" + player.getJob() + "_left.png");
+		imgH_right = new ImageIcon("img/" + player.getJob() + "_right.png");
 		
 		enemy = new JLabel();
 		if (tmp.equals("Graveyard")) {
@@ -106,6 +108,12 @@ public class CharsDisplay extends JPanel implements Runnable{
 				imgH = imgH_right;
 				x = 355;
 			}
+			player.setHp(player.getMaxHp());
+			player.setMana(player.getMaxMp());
+			isDieGoblin = false;
+			isDieBlackHood = false;
+			isDieGhost = false;
+			
 			human.setIcon(imgH);
 			human.setBounds(x,y,imgH.getIconWidth(),imgH.getIconHeight());
 		}
