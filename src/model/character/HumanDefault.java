@@ -19,5 +19,5 @@ public interface HumanDefault {
 	public static final int skillMage = 25;
 	public static final int manaSkillMage = 24;
 	
-	public static final double increase = 0.1;
+	public static final double increase = 1.1;
 }
