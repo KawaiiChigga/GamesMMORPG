@@ -10,6 +10,7 @@ public class Goblin extends Monster {
 		super.attackMin = attackGoblin - 5;
 		super.skillMax = skillGoblin;
 		super.skillMin = skillGoblin - 5;
+		super.manaSkill = manaSkillGoblin;
 	}
 
 	@Override

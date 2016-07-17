@@ -5,6 +5,7 @@ public abstract class Character {
 	protected int hp, mana;
 	protected int attackMin, attackMax;
 	protected int skillMin, skillMax;
+	protected int manaSkill;
 	public abstract String skill();
 	public abstract String weapon();
 	public Character(String name) {
@@ -16,6 +17,12 @@ public abstract class Character {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getManaSkill() {
+		return manaSkill;
+	}
+	public void setManaSkill(int manaSkill) {
+		this.manaSkill = manaSkill;
 	}
 	public int getHp() {
 		return hp;

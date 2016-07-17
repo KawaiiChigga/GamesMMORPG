@@ -10,6 +10,7 @@ public class BlackHood extends Monster {
 		super.attackMin = attackBlackHood - 5;
 		super.skillMax = skillBlackHood;
 		super.skillMin = skillBlackHood - 5;
+		super.manaSkill = manaSkillBlackHood;
 	}
 
 	@Override

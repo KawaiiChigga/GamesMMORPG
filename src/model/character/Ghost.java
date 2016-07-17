@@ -10,6 +10,7 @@ public class Ghost extends Monster {
 		super.attackMin = attackGhost - 5;
 		super.skillMax = skillGhost;
 		super.skillMin = skillGhost - 5;
+		super.manaSkill = manaSkillGhost;
 	}
 
 	@Override

@@ -33,6 +33,7 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 	private JLabel lblHP, lblMP, lblHPenemy, lblMPenemy, lblH, lblE;
 	private JButton btnAtt, btnSkill;
 	private boolean inGame;
+	private boolean playerTurn;
 	private String src;
 	
 	private String map;
@@ -48,6 +49,7 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 	public BattleDisplay(JFrame frame, String map, Human player, Character enemy ){
 		background = new MusicBattle();
 		inGame = true;
+		playerTurn = true;
 		this.frame = frame;
 		this.map = map;
 		this.player = player;
@@ -99,48 +101,6 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 		lblMP.setBounds(135,330,100,100);
 		add(lblMP);
 		
-		btnAtt = new JButton("Attack");
-		btnAtt.setForeground(Color.WHITE);
-		btnAtt.setFont(new Font("Agency FB", Font.BOLD, 30));
-		btnAtt.setContentAreaFilled(false);
-		btnAtt.setBorderPainted(false);
-		btnAtt.setBounds(180,330,100,30);
-		add(btnAtt);
-		btnAtt.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				int dmg = r.nextInt(player.getAttackMax()- player.getAttackMin()) + player.getAttackMin();
-				enemy.setHp(enemy.getHp()-dmg);
-			
-			}
-		});
-		
-		btnSkill = new JButton("Skill");
-		btnSkill.setForeground(Color.WHITE);
-		btnSkill.setFont(new Font("Agency FB", Font.BOLD, 30));
-		btnSkill.setContentAreaFilled(false);
-		btnSkill.setBorderPainted(false);
-		btnSkill.setBounds(180,370,100,30);
-		if (player.getManaCost() > player.getMana()) {
-			btnSkill.setVisible(false);
-		}
-		add(btnSkill);
-		btnSkill.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				int dmg = r.nextInt(player.getSkillMax()- player.getSkillMin()) + player.getSkillMin();
-				enemy.setHp(enemy.getHp()-dmg);
-				player.setMana(player.getMana() - player.getManaCost());
-				
-				if (player.getManaCost() > player.getMana()) {
-					btnSkill.setVisible(false);
-				}
-			}
-		});
-		
-		
 		lblHPenemy = new JLabel(enemy.getHp() + " / ");
 		lblHPenemy.setForeground(Color.WHITE);
 		lblHPenemy.setFont(new Font("Agency FB", Font.BOLD, 70));
@@ -152,6 +112,9 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 		lblMPenemy.setFont(new Font("Agency FB", Font.BOLD, 40));
 		lblMPenemy.setBounds(660,330,100,100);
 		add(lblMPenemy);
+		
+		add(btnAtt);
+		add(btnSkill);
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -184,7 +147,65 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 			frame.dispose();
 		}
 	}
-	
+	public void turn() {
+		if (playerTurn) {
+			btnAtt = new JButton("Attack");
+			btnAtt.setForeground(Color.WHITE);
+			btnAtt.setFont(new Font("Agency FB", Font.BOLD, 30));
+			btnAtt.setContentAreaFilled(false);
+			btnAtt.setBorderPainted(false);
+			btnAtt.setBounds(180,330,100,30);
+			btnAtt.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					int dmg = r.nextInt(player.getAttackMax()- player.getAttackMin()) + player.getAttackMin();
+					enemy.setHp(enemy.getHp()-dmg);
+					playerTurn = false;
+				}
+			});
+			
+			btnSkill = new JButton("Skill");
+			btnSkill.setForeground(Color.WHITE);
+			btnSkill.setFont(new Font("Agency FB", Font.BOLD, 30));
+			btnSkill.setContentAreaFilled(false);
+			btnSkill.setBorderPainted(false);
+			btnSkill.setBounds(180,370,100,30);
+			if (player.getManaCost() > player.getMana()) {
+				btnSkill.setVisible(false);
+			}
+			btnSkill.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					int dmg = r.nextInt(player.getSkillMax()- player.getSkillMin()) + player.getSkillMin();
+					enemy.setHp(enemy.getHp()-dmg);
+					player.setMana(player.getMana() - player.getManaCost());
+					
+					if (player.getManaCost() > player.getMana()) {
+						btnSkill.setVisible(false);
+					}
+					playerTurn = false;
+				}
+			});
+		} else {
+			int musuh;
+			if (enemy.getManaSkill() > enemy.getMana()){
+				musuh = r.nextInt(3);
+			} else {
+				musuh = r.nextInt(2);
+			}
+			if (musuh == 2) { //pake skill
+				int skillE = r.nextInt(enemy.getSkillMax()-enemy.getSkillMin()) + enemy.getSkillMin();
+				player.setHp(player.getHp()-skillE);
+				enemy.setMana(enemy.getMana() - enemy.getManaSkill());
+			} else { //attack biasa
+				int attackE = r.nextInt(enemy.getAttackMax()-enemy.getAttackMin()) + enemy.getAttackMin();
+				player.setHp(player.getHp()-attackE);
+			}
+			playerTurn = true;
+		}
+	}
 
 	
 	@Override
@@ -192,6 +213,7 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 		while (inGame) {
 			repaint();
 			check();
+			turn();
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
