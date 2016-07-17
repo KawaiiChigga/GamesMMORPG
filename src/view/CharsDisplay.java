@@ -84,7 +84,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 				ingame = false;
 			} else {
 				enemy.setVisible(true);
-				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+				enemy.setBounds(640,y,imgE.getIconWidth(),imgE.getIconHeight());
 			}
 			
 		} else if (tmp.equals("Hill")) {
@@ -100,7 +100,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 				enemy.setVisible(false);
 			} else {
 				enemy.setVisible(true);
-				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+				enemy.setBounds(640,y,imgE.getIconWidth(),imgE.getIconHeight());
 			}
 			
 		} else if (tmp.equals("Jungle")) {
@@ -116,7 +116,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 				enemy.setVisible(false);
 			} else {
 				enemy.setVisible(true);
-				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+				enemy.setBounds(640,y,imgE.getIconWidth(),imgE.getIconHeight());
 			}
 						
 		} else if (tmp.equals("Village")) {
@@ -229,6 +229,7 @@ public class CharsDisplay extends JPanel implements Runnable{
                 System.out.println("interrupted");
             }
         }
+		JOptionPane.showMessageDialog(null, "THE END!\nThanks for playing!\nDaniel - 1115001\nGlenn - 1115008", "Games MMORPG", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 	}
 }

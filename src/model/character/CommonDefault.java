@@ -2,15 +2,15 @@ package model.character;
 
 
 public interface CommonDefault {
-	public static final int hpGoblin = 140;
+	public static final int hpGoblin = 100;
 	public static final int manaGoblin = 50;
-	public static final int attackGoblin = 24;
-	public static final int skillGoblin = 35;
+	public static final int attackGoblin = 12;
+	public static final int skillGoblin = 18;
 	public static final int manaSkillGoblin = 18;
 	
-	public static final int hpGhost = 250;
+	public static final int hpGhost = 130;
 	public static final int manaGhost = 120;
-	public static final int attackGhost = 35;
+	public static final int attackGhost = 15;
 	public static final int skillGhost = 50;
 	public static final int manaSkillGhost = 30;
 	

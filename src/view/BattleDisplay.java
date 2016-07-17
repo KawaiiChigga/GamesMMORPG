@@ -143,16 +143,21 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 		if (enemy.getHp() <= 0) {
 			inGame = false;
 			if (map.equals("Jungle")) {
-				player.setLevel(player.getLevel() + 1);
-				player.setMaxHp((int) (player.getMaxHp() * player.increase));
 				CharsDisplay.isDieBlackHood = true;
 			} else if (map.equals("Hill")) {
-				player.setLevel(player.getLevel() + 1);
-				player.setMaxHp((int) (player.getMaxHp() * player.increase));
 				CharsDisplay.isDieGoblin = true;
 			} else if (map.equals("Graveyard")) {
 				CharsDisplay.isDieGhost = true;
 			}
+			player.setLevel(player.getLevel() + 1);
+			player.setMaxHp((int) (player.getMaxHp() * player.increase));
+			player.setHp((int) (player.getHp() * player.increase));
+			player.setMaxMp((int) (player.getMaxMp() * player.increase));
+			player.setMana((int) (player.getMana() * player.increase));
+			player.setAttackMax((int) (player.getAttackMax() * player.increase));
+			player.setAttackMin((int) (player.getAttackMin() * player.increase));
+			player.setSkillMax((int) (player.getSkillMax() * player.increase));
+			player.setSkillMin((int) (player.getSkillMin() * player.increase));
 			new Chars(map, player);
 			frame.dispose();
 		}
@@ -201,7 +206,7 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 			});
 		} else {
 			int musuh;
-			if (enemy.getManaSkill() > enemy.getMana()) {
+			if (enemy.getManaSkill() < enemy.getMana()) {
 				musuh = r.nextInt(3);
 			} else {
 				musuh = r.nextInt(2);
