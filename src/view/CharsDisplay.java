@@ -39,10 +39,11 @@ public class CharsDisplay extends JPanel implements Runnable{
 	
 	private Thread th = null;
 	
-	public CharsDisplay(JFrame frame, String tmp, String job){
+	public CharsDisplay(JFrame frame, String tmp, String job, Human player){
 		this.job = job;
 		this.tmp = tmp;
 		this.frame = frame;
+		this.player = player;
 		setFocusable(true);
 		addKeyListener(new TAdapter());
 		
@@ -153,34 +154,34 @@ public class CharsDisplay extends JPanel implements Runnable{
     			if (tmp.equals("Village")) {
     				x = 0;
     			} else if (tmp.equals("Jungle")) {
-    				new Chars("Village");
+    				new Chars("Village", player);
     				frame.dispose();
     				x = BG_WIDTH - imgH_left.getIconWidth();
     				imgH = imgH_left;
     			} else if (tmp.equals("Hill")) {
-    				new Chars("Jungle");
+    				new Chars("Jungle", player);
     				frame.dispose();
     				x = BG_WIDTH - imgH_left.getIconWidth();
     				imgH = imgH_left;
     			} else if (tmp.equals("Graveyard")) {
-    				new Chars("Hill");
+    				new Chars("Hill", player);
     				frame.dispose();
     				x = BG_WIDTH - imgH_left.getIconWidth();
     				imgH = imgH_left;
     			}
     		} else if (x > BG_WIDTH - imgH_left.getIconWidth()) {
     			if (tmp.equals("Village")) {
-    				new Chars("Jungle");
+    				new Chars("Jungle", player);
     				x = 0;
     				imgH = imgH_right;
     				frame.dispose();
     			} else if (tmp.equals("Jungle")) {
-    				new Chars("Hill");
+    				new Chars("Hill", player);
     				x = 0;
     				imgH = imgH_right;
     				frame.dispose();
     			} else if (tmp.equals("Hill")) {
-    				new Chars("Graveyard");
+    				new Chars("Graveyard", player);
     				x = 0;
     				imgH = imgH_right;
     				frame.dispose();
