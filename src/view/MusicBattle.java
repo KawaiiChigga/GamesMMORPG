@@ -16,7 +16,7 @@ public class MusicBattle extends JFrame{
 		setSize(300, 200);
 		setVisible(false);
 
-		URL url = getClass().getClassLoader().getResource("bgSound.wav");
+		URL url = getClass().getClassLoader().getResource("battle.wav");
 		try {
 			AudioInputStream audioIS = AudioSystem.getAudioInputStream(url);
 			clip = AudioSystem.getClip();
