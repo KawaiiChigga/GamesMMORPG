@@ -18,22 +18,22 @@ public class Human extends Character implements HumanDefault {
 			super.attackMin = attackWarrior - 5;
 			super.skillMax = skillWarrior;
 			super.skillMin = skillWarrior - 5;
-			super.hp = 100;
-			super.mana = 150;
+			super.hp = hpWarrior;
+			super.mana = manaWarrior;
 		} else if (job.equalsIgnoreCase("Mage")) {
 			super.attackMax = attackMage;
 			super.attackMin = attackMage - 5;
 			super.skillMax = skillMage;
 			super.skillMin = skillMage - 5;
-			super.hp = 100;
-			super.mana = 150;
+			super.hp = hpMage;
+			super.mana = manaMage;
 		} else if (job.equalsIgnoreCase("Archer")) {
 			super.attackMax = attackArcher;
 			super.attackMin = attackArcher - 5;
 			super.skillMax = skillArcher;
 			super.skillMin = skillArcher - 5;
-			super.hp = 100;
-			super.mana = 150;
+			super.hp = hpArcher;
+			super.mana = manaArcher;
 		}
 	}
 	
