@@ -122,6 +122,9 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 		btnSkill.setContentAreaFilled(false);
 		btnSkill.setBorderPainted(false);
 		btnSkill.setBounds(180,370,100,30);
+		if (player.getManaCost() > player.getMana()) {
+			btnSkill.setVisible(false);
+		}
 		add(btnSkill);
 		btnSkill.addActionListener(new ActionListener() {
 			@Override
@@ -130,6 +133,10 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 				int dmg = r.nextInt(player.getSkillMax()- player.getSkillMin()) + player.getSkillMin();
 				enemy.setHp(enemy.getHp()-dmg);
 				player.setMana(player.getMana() - player.getManaCost());
+				
+				if (player.getManaCost() > player.getMana()) {
+					btnSkill.setVisible(false);
+				}
 			}
 		});
 		
@@ -166,12 +173,15 @@ public class BattleDisplay extends JPanel implements Runnable, HumanDefault {
 		
 		if(enemy.getHp() <=0){
 			inGame = false;
-			new Chars(map , player);
+			if (map.equals("Jungle")) {
+				CharsDisplay.isDieBlackHood = true;
+			} else if (map.equals("Hill")) {
+				CharsDisplay.isDieGoblin = true;
+			} else if (map.equals("Graveyard")) {
+				CharsDisplay.isDieGhost = true;
+			}
+			new Chars(map, player);
 			frame.dispose();
-		}
-		
-		if(player.getManaCost() > player.getMana()){
-			btnSkill.setVisible(false);
 		}
 	}
 	

@@ -5,15 +5,10 @@ import java.util.ArrayList;
 
 public class Human extends Character implements HumanDefault {
 	private String job;
-	private double exp;
-	private int level;
-<<<<<<< HEAD
+	private double exp = 0;
+	private int level = 1;
 	private int maxHp, maxMp;
-=======
 	private int manaCost;
-	
->>>>>>> origin/master
-	
 	
 	public int getMaxHp() {
 		return maxHp;
@@ -73,40 +68,31 @@ public class Human extends Character implements HumanDefault {
 			super.attackMin = attackWarrior - 5;
 			super.skillMax = skillWarrior;
 			super.skillMin = skillWarrior - 5;
-<<<<<<< HEAD
 			maxHp = hpWarrior;
 			maxMp = manaWarrior;
-=======
 			super.hp = hpWarrior;
 			super.mana = manaWarrior;
 			manaCost = manaSkillWarrior;
->>>>>>> origin/master
 		} else if (job.equalsIgnoreCase("Mage")) {
 			super.attackMax = attackMage;
 			super.attackMin = attackMage - 5;
 			super.skillMax = skillMage;
 			super.skillMin = skillMage - 5;
-<<<<<<< HEAD
 			maxHp = hpMage;
 			maxMp = manaMage;
-=======
 			super.hp = hpMage;
 			super.mana = manaMage;
 			manaCost = manaSkillMage;
->>>>>>> origin/master
 		} else if (job.equalsIgnoreCase("Archer")) {
 			super.attackMax = attackArcher;
 			super.attackMin = attackArcher - 5;
 			super.skillMax = skillArcher;
 			super.skillMin = skillArcher - 5;
-<<<<<<< HEAD
 			maxHp = hpArcher;
 			maxMp = manaArcher;
-=======
 			super.hp = hpArcher;
 			super.mana = manaArcher;
 			manaCost = manaSkillArcher;
->>>>>>> origin/master
 		}
 	}
 	

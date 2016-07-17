@@ -75,8 +75,13 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setBounds(x,y,imgH.getIconWidth(),imgH.getIconHeight());
 			
 			ImageIcon imgE = new ImageIcon("img/ghost.png");
-//			enemy.setIcon(imgE);
-//			enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+			enemy.setIcon(imgE);
+			if (isDieGhost) {
+				enemy.setVisible(false);
+			} else {
+				enemy.setVisible(true);
+				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+			}
 			
 		} else if (tmp.equals("Hill")) {
 			ImageIcon img = new ImageIcon("img/hill.png");
@@ -86,8 +91,13 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setBounds(x,y,imgH.getIconWidth(),imgH.getIconHeight());
 			
 			ImageIcon imgE = new ImageIcon("img/goblin.png");
-//			enemy.setIcon(imgE);
-//			enemy.setBounds(650,y,img.getIconWidth(),img.getIconHeight());
+			enemy.setIcon(imgE);
+			if (isDieGoblin) {
+				enemy.setVisible(false);
+			} else {
+				enemy.setVisible(true);
+				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+			}
 			
 		} else if (tmp.equals("Jungle")) {
 			ImageIcon img = new ImageIcon("img/jungle.png");
@@ -98,7 +108,12 @@ public class CharsDisplay extends JPanel implements Runnable{
 			
 			ImageIcon imgE = new ImageIcon("img/blackhood.png");
 			enemy.setIcon(imgE);
-			enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+			if (isDieBlackHood) {
+				enemy.setVisible(false);
+			} else {
+				enemy.setVisible(true);
+				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+			}
 						
 		} else if (tmp.equals("Village")) {
 			ImageIcon img = new ImageIcon("img/village.png");
