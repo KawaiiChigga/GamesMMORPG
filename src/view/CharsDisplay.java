@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import model.character.Human;
@@ -41,8 +42,10 @@ public class CharsDisplay extends JPanel implements Runnable{
 	private JLabel enemy;
 	
 	private Thread th = null;
+	private static boolean ingame;
 	
 	public CharsDisplay(JFrame frame, String tmp, Human player){
+		ingame = true;
 		this.tmp = tmp;
 		this.frame = frame;
 		this.player = player;
@@ -78,6 +81,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 			enemy.setIcon(imgE);
 			if (isDieGhost) {
 				enemy.setVisible(false);
+				ingame = false;
 			} else {
 				enemy.setVisible(true);
 				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
@@ -91,13 +95,13 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setBounds(x,y,imgH.getIconWidth(),imgH.getIconHeight());
 			
 			ImageIcon imgE = new ImageIcon("img/goblin.png");
-			enemy.setIcon(imgE);
-			if (isDieGoblin) {
-				enemy.setVisible(false);
-			} else {
-				enemy.setVisible(true);
-				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
-			}
+//			enemy.setIcon(imgE);
+//			if (isDieGoblin) {
+//				enemy.setVisible(false);
+//			} else {
+//				enemy.setVisible(true);
+//				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+//			}
 			
 		} else if (tmp.equals("Jungle")) {
 			ImageIcon img = new ImageIcon("img/jungle.png");
@@ -107,13 +111,13 @@ public class CharsDisplay extends JPanel implements Runnable{
 			human.setBounds(x,y,imgH.getIconWidth(),imgH.getIconHeight());
 			
 			ImageIcon imgE = new ImageIcon("img/blackhood.png");
-			enemy.setIcon(imgE);
-			if (isDieBlackHood) {
-				enemy.setVisible(false);
-			} else {
-				enemy.setVisible(true);
-				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
-			}
+//			enemy.setIcon(imgE);
+//			if (isDieBlackHood) {
+//				enemy.setVisible(false);
+//			} else {
+//				enemy.setVisible(true);
+//				enemy.setBounds(650,y,imgE.getIconWidth(),imgE.getIconHeight());
+//			}
 						
 		} else if (tmp.equals("Village")) {
 			ImageIcon img = new ImageIcon("img/village.png");
@@ -217,7 +221,7 @@ public class CharsDisplay extends JPanel implements Runnable{
 
 	@Override
 	public void run() {
-		while (true) {
+		while (ingame) {
 			repaint();
             try {
                 Thread.sleep(10);
@@ -225,5 +229,6 @@ public class CharsDisplay extends JPanel implements Runnable{
                 System.out.println("interrupted");
             }
         }
+		System.exit(0);
 	}
 }
